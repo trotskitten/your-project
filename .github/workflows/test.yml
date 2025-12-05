@@ -22,7 +22,7 @@ jobs:
         run: python test_action.py
 
       - name: Upload test log CSV
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-log
           path: test_log.csv
