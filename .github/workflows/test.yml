@@ -2,8 +2,8 @@ name: Test Scheduled Action
 
 on:
   schedule:
-    - cron: "* * * * *"   
-  workflow_dispatch:         # allows manual run
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
 
 jobs:
   run-test:
@@ -19,4 +19,10 @@ jobs:
           python-version: "3.10"
 
       - name: Run test script
-        run: python test_action.py 
+        run: python test_action.py
+
+      - name: Upload test log CSV
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-log
+          path: test_log.csv
